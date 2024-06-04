@@ -5,14 +5,27 @@ body {
 
 .UI {
     vertical-align: middle;
-    width: 30%;
+    width: 20%;
     display: inline-block;
     position: fixed;
 }
-.UI .Pagelinks {
-    width: 40%;
+.UI h1, .main h1 {
+    font-size: 12mm;
+    text-align: center;
+    -webkit-text-fill-color: rgba(0,0,0,0);
+    -webkit-text-stroke: 2px black;
+    text-shadow: 2px 2px 0 black;
 }
-.UI li {
+
+.UI .Pagelinks {
+    width: 80%;
+    margin: auto;
+}
+.Pagelinks ul {
+    padding: 0;
+}
+.Pagelinks li {
+    font-size: larger;
     list-style-type: none;
     border: 1px solid black;
     border-radius: 25px;
@@ -21,7 +34,7 @@ body {
     transition: all 0.2s;
     margin: 5% 0;
 }
-.UI li:hover {
+.Pagelinks li:hover, .Pagelinks .active {
     box-shadow: 4px 4px 0 black;
 }
 
@@ -49,6 +62,7 @@ body {
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
+    filter: drop-shadow(4px 4px 0 black);
 }
 
 .main {
@@ -57,12 +71,31 @@ body {
     border-radius: 25px;
     padding: 5%;
 }
-
-h1 {
-    text-align: center;
-}
 p {
     font-size: large;
+}
+
+.main a {
+    text-decoration: none;
+}
+.main a:hover {
+    font-weight: bold;
+}
+
+.info {
+    columns: 2;
+    list-style-type: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.star {
+    columns: 3;
+    list-style-type: "★ ";
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+    font-size: larger;
 }
 
 .skills {
