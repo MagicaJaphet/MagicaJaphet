@@ -1,6 +1,26 @@
+:root {
+    --white-color: #fff;
+    --blue-color: #A1CBC3;
+    --yellow-color: #FCBE5A;
+    --red-color: #ED773F;
+    --black-color: #3B3434;
+}
+
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: rgb(189, 189, 189);
+    background: linear-gradient(135deg, var(--white-color) 0%, var(--white-color) 9.99%, var(--blue-color) 10%, var(--blue-color) 19.99%, var(--yellow-color) 20%, var(--yellow-color) 29.99%, var(--red-color) 30%, var(--red-color) 39.99%, var(--black-color) 40%, var(--black-color) 49.99%,
+    var(--white-color) 50%, var(--white-color) 59.99%, var(--blue-color) 60%, var(--blue-color) 69.99%, var(--yellow-color) 70%, var(--yellow-color) 79.99%, var(--red-color) 80%, var(--red-color) 89.99%, var(--black-color) 90% );
+    background-size: 330%;
+    animation: colorBg 30s linear infinite;
+    
+}
+
+::-moz-selection {
+    background-color: var(--red-color);
+}
+
+::selection {
+    background-color: var(--red-color);
 }
 
 .UI {
@@ -9,12 +29,25 @@ body {
     display: inline-block;
     position: fixed;
 }
-.UI h1, .main h1 {
+
+.UI h1 {
     font-size: 12mm;
     text-align: center;
     -webkit-text-fill-color: rgba(0,0,0,0);
-    -webkit-text-stroke: 2px black;
-    text-shadow: 2px 2px 0 black;
+    -webkit-text-stroke: 2px var(--black-color);
+    text-shadow: 2px 2px 0 var(--black-color);
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 25px;
+    width: 40%;
+    margin: 5% auto;
+}
+
+.main h1 {
+    font-size: 12mm;
+    text-align: center;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    text-shadow: 2px 2px 0 rgb(255, 255, 255);
 }
 
 .UI .Pagelinks {
@@ -25,33 +58,69 @@ body {
     padding: 0;
 }
 .Pagelinks li {
+    color:var(--black-color);
     font-size: larger;
     list-style-type: none;
-    border: 1px solid black;
+    border-right: 3px solid var(--black-color);
+    border-bottom: 3px solid var(--black-color);
+    outline: 2px solid var(--blue-color);
+    background-color: var(--yellow-color);
     border-radius: 25px;
     padding: 5%;
     text-align: center;
     transition: all 0.2s;
     margin: 5% 0;
+    position: relative;
 }
 .Pagelinks li:hover, .Pagelinks .active {
-    box-shadow: 4px 4px 0 black;
+    box-shadow: 4px 4px 0 rgb(255, 255, 255);
+    background-color: var(--black-color);
+    color: var(--white-color);
+    outline: 2px solid var(--red-color);
+    border-right: 3px solid var(--yellow-color);
+    border-bottom: 3px solid var(--yellow-color);
+}
+.Pagelinks li:hover {
+    animation: shake 0.3s;
+}
+
+.sparkle {
+    position: absolute;
+    scale: 4;
+    top: 10px;
+    animation: sparkleSpin 1s alternate-reverse infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: 50% 57%;
+    text-shadow: 0.8px 0.8px 0 var(--red-color);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
 }
 
 .wrapper {
     margin: 10%;
     width: 40%;
     padding: 0.5%;
-    border: 1px solid black;
+    color: var(--white-color);
+    background-color: rgba(0,0,0,0.8);
+    border: 1px solid rgb(255, 255, 255);
     border-top: none;
     border-left: none;
     border-radius: 35px;
     float: inline-end;
-    box-shadow: 4px 4px 0 black;
+    box-shadow: 4px 4px 0 rgb(255, 255, 255);
     transition: all 0.2s;
 }
 .wrapper:hover {
-    box-shadow: 8px 8px 0 black;
+    box-shadow: 8px 8px 0 rgb(255, 255, 255);
+}
+
+.wrapper a {
+    color: var(--yellow-color);
+}
+.wrapper a:visited {
+    color: var(--red-color);
 }
 
 .sona {
@@ -62,12 +131,12 @@ body {
     -webkit-user-select: none;
     user-select: none;
     pointer-events: none;
-    filter: drop-shadow(4px 4px 0 black);
+    filter: drop-shadow(4px 4px 0 rgb(255, 255, 255));
 }
 
 .main {
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 25px;
     padding: 5%;
 }
@@ -85,7 +154,7 @@ p {
 .info {
     columns: 2;
     list-style-type: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     padding-bottom: 10px;
 }
 
@@ -93,7 +162,7 @@ p {
     columns: 3;
     list-style-type: "★ ";
     text-decoration: none;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     padding-bottom: 15px;
     font-size: larger;
 }
@@ -101,6 +170,20 @@ p {
 .skills {
     columns: 3;
     list-style-type: "➤ ";
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(255, 255, 255);
     padding-bottom: 10px;
+}
+
+@keyframes shake {
+    25% {transform: rotate(-2deg);}
+    50% {transform: rotate(2deg);}
+    75% {transform: rotate(0);}
+}
+@keyframes colorBg {
+    0% {background-position: 0% 0%;}
+    100% {background-position: 98% 98%;}
+}
+@keyframes sparkleSpin {
+    0% {transform: rotate(-45deg);}
+    100% {transform: rotate(45deg);}
 }
