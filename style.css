@@ -36,13 +36,13 @@ body {
     -webkit-text-fill-color: rgba(0,0,0,0);
     -webkit-text-stroke: 2px var(--black-color);
     text-shadow: 2px 2px 0 var(--black-color);
-    background-color: rgb(255, 255, 255, 0.5);
+    background-color: rgb(255, 255, 255, 0.7);
     border-radius: 25px;
     width: 40%;
     margin: 5% auto;
 }
 
-.main h1 {
+.main h1, .main2 h1 {
     font-size: 12mm;
     text-align: center;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
@@ -53,6 +53,9 @@ body {
 .UI .Pagelinks {
     width: 80%;
     margin: auto;
+}
+.Pagelinks a {
+    text-decoration: none;
 }
 .Pagelinks ul {
     padding: 0;
@@ -99,8 +102,8 @@ body {
 }
 
 .wrapper {
-    margin: 10%;
-    width: 40%;
+    margin: 2% 10%;
+    width: 60%;
     padding: 0.5%;
     color: var(--white-color);
     background-color: rgba(0,0,0,0.8);
@@ -111,6 +114,7 @@ body {
     float: inline-end;
     box-shadow: 4px 4px 0 rgb(255, 255, 255);
     transition: all 0.2s;
+    position: relative;
 }
 .wrapper:hover {
     box-shadow: 8px 8px 0 rgb(255, 255, 255);
@@ -123,22 +127,16 @@ body {
     color: var(--red-color);
 }
 
-.sona {
-    position: absolute;
-    right: 490px;
-    top: 30px;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    pointer-events: none;
-    filter: drop-shadow(4px 4px 0 rgb(255, 255, 255));
-}
-
 .main {
     margin: auto;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 25px;
     padding: 5%;
+}
+.main2 {
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 25px;
 }
 p {
     font-size: large;
@@ -174,16 +172,115 @@ p {
     padding-bottom: 10px;
 }
 
+.buttons ul {
+    margin: 0;
+    padding: 0;
+}
+
+.buttons li {
+    background-color: #3B3434;
+    width: 70%;
+    text-align: center;
+    margin: 4% auto 0 auto;
+    list-style-type: none;
+    padding: 2%;
+    border: 1px solid var(--blue-color);
+    box-shadow: 2px 2px 0 var(--red-color);
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.buttons li:hover {
+    background-color: var(--red-color);
+    color: var(--black-color);
+    box-shadow: 2px 2px 0 var(--yellow-color);
+    animation: shake 0.2s;
+}
+
+.gallery {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    float: right;
+    margin: 1% 11%;
+}
+.gallery figure {
+    padding: 0;
+    margin: auto;
+    height: 400px;
+    width: 50%;
+    position: relative;
+}
+.gallery figcaption {
+    position: absolute;
+    top: 90%;
+    right: 5%;
+    transition: all 0.2s;
+    color: var(--white-color);
+    background-color: rgba(0,0,0,0.6);
+    padding: 0.5% 1%;
+    border-radius: 25px;
+}
+.gallery img {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    scale: 0.95;
+    transition: all 0.2s;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 var(--black-color);
+}
+
+.gallery img:hover {
+    scale: 1;
+    box-shadow: none;
+    animation: imageScroll 6s alternate-reverse infinite ease-in-out;
+}
+
 @keyframes shake {
     25% {transform: rotate(-2deg);}
     50% {transform: rotate(2deg);}
     75% {transform: rotate(0);}
 }
 @keyframes colorBg {
-    0% {background-position: 0% 0%;}
-    100% {background-position: 98% 98%;}
+    0% {background-position: 0%;}
+    100% {background-position: 99%;}
 }
 @keyframes sparkleSpin {
     0% {transform: rotate(-45deg);}
     100% {transform: rotate(45deg);}
+}
+@keyframes imageScroll {
+    0% {object-position: bottom right;}
+    100% {object-position: top left;}
+}
+
+@media (max-width: 1000px) {
+    .UI {
+        width: 100%;
+        float: none;
+        position: relative;
+    }
+    
+    .wrapper {
+        width: 90%;
+        margin: auto;
+        float: none;
+    }
+    .wrapper ul {
+        columns: 1;
+    }
+    .wrapper li {
+        padding-bottom: 4%;
+    }
+
+    .buttons li {
+        width: 90%;
+        padding: 4%;
+    }
+
+    .gallery {
+        width: 100%;
+        margin: 2% auto;
+    }
 }
